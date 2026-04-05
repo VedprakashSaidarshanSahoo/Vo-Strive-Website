@@ -22,31 +22,13 @@ A modern, production-ready React website for VoStrive - your discipline engine f
 
 ## Deployment to GitHub Pages
 
-This project is configured for GitHub Pages deployment.
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
 
-### Automatic Deployment (Recommended)
-
-The project includes a GitHub Actions workflow that automatically builds and deploys to the `gh-pages` branch when you push to `main`.
-
-1. Ensure your repository has the `gh-pages` branch.
+1. Ensure your repository has the `gh-pages` branch (it will be created automatically).
 2. Push your changes to the `main` branch.
 3. The site will be available at `https://yourusername.github.io/vostrive-website/`
 
-### Manual Deployment
-
-If you prefer manual deployment:
-
-1. Build the project:
-   ```bash
-   npm run build
-   ```
-
-2. Deploy to GitHub Pages:
-   ```bash
-   npm run deploy
-   ```
-
-This will push the `dist` folder to the `gh-pages` branch.
+The GitHub Actions workflow will build and deploy the site automatically on every push to `main`.
 
 ### Configuration Notes
 
