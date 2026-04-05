@@ -20,24 +20,39 @@ A modern, production-ready React website for VoStrive - your discipline engine f
 - 3D hero background
 - Interactive components
 
-## Getting Started
+## Deployment to GitHub Pages
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+This project is configured for GitHub Pages deployment.
 
-2. Start development server:
-   ```bash
-   npm run dev
-   ```
+### Automatic Deployment (Recommended)
 
-3. Build for production:
+The project includes a GitHub Actions workflow that automatically builds and deploys to the `gh-pages` branch when you push to `main`.
+
+1. Ensure your repository has the `gh-pages` branch.
+2. Push your changes to the `main` branch.
+3. The site will be available at `https://yourusername.github.io/vostrive-website/`
+
+### Manual Deployment
+
+If you prefer manual deployment:
+
+1. Build the project:
    ```bash
    npm run build
    ```
 
-The built files will be in the `dist` folder, ready for static hosting.
+2. Deploy to GitHub Pages:
+   ```bash
+   npm run deploy
+   ```
+
+This will push the `dist` folder to the `gh-pages` branch.
+
+### Configuration Notes
+
+- The Vite config sets the base path to `/vostrive-website/` for production builds.
+- If your repository name is different, update the `base` in `vite.config.ts`.
+- The `homepage` in `package.json` should match your GitHub Pages URL.
 
 ## Project Structure
 
