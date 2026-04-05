@@ -5,7 +5,7 @@ A modern, production-ready React website for VoStrive - your discipline engine f
 ## Tech Stack
 
 - **React** with TypeScript
-- **Vite** for fast build and development
+- **Vite** for fast build and development (requires Node.js 20.19+ or 22.12+)
 - **Tailwind CSS** for styling
 - **Framer Motion** for animations
 - **Anime.js** for additional animations
