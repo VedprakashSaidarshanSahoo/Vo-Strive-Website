@@ -2,12 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Button from './Button';
 
+const sections = [
+  { id: 'about', label: 'About' },
+  { id: 'features', label: 'Ecosystem' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'how-it-works', label: 'Flow' },
+  { id: 'discipline', label: 'Discipline' },
+  { id: 'pricing', label: 'Pricing' },
+];
+
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 60);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -23,33 +32,32 @@ const Navbar: React.FC = () => {
   return (
     <motion.nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-surface/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-surface/95 backdrop-blur-xl shadow-lg' : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.4 }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <motion.div
-            className="text-2xl font-bold text-white"
-            whileHover={{ scale: 1.05 }}
-          >
+        <div className="flex items-center justify-between py-4">
+          <motion.div className="text-2xl font-bold tracking-tight text-white" whileHover={{ scale: 1.05 }}>
             VoStrive
           </motion.div>
-          <div className="hidden md:flex space-x-8">
-            {['features', 'how-it-works', 'philosophy', 'pricing', 'demo'].map((item) => (
+
+          <div className="hidden md:flex items-center gap-8 text-sm text-gray-300">
+            {sections.map((section) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-gray-300 hover:text-primary transition-colors capitalize"
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className="transition-colors duration-200 hover:text-primary"
               >
-                {item.replace('-', ' ')}
+                {section.label}
               </button>
             ))}
           </div>
-          <Button variant="primary" size="sm">
-            Get Started
+
+          <Button variant="secondary" size="sm" onClick={() => scrollToSection('cta')}>
+            Join Waitlist
           </Button>
         </div>
       </div>

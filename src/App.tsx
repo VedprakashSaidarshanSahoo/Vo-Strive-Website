@@ -1,11 +1,16 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Features from './components/Features';
+import About from './components/About';
+import FeatureEcosystem from './components/FeatureEcosystem';
+import Architecture from './components/Architecture';
 import HowItWorks from './components/HowItWorks';
-import Philosophy from './components/Philosophy';
+import DisciplineEngine from './components/DisciplineEngine';
+import AILayer from './components/AILayer';
+import ARExperience from './components/ARExperience';
+import ProgressTransformation from './components/ProgressTransformation';
 import Pricing from './components/Pricing';
-import Demo from './components/Demo';
+import FutureVision from './components/FutureVision';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
 
@@ -14,11 +19,16 @@ function App() {
     <div className="min-h-screen bg-background text-white">
       <Navbar />
       <Hero />
-      <Features />
+      <About />
+      <FeatureEcosystem />
+      <Architecture />
       <HowItWorks />
-      <Philosophy />
+      <DisciplineEngine />
+      <AILayer />
+      <ARExperience />
+      <ProgressTransformation />
       <Pricing />
-      <Demo />
+      <FutureVision />
       <CTA />
       <Footer />
     </div>

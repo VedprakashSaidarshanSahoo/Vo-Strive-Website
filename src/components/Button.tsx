@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -15,12 +16,13 @@ const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
   className = '',
+  type = 'button',
 }) => {
-  const baseClasses = 'font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background';
+  const baseClasses = 'font-semibold rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background';
 
   const variantClasses = {
-    primary: 'bg-primary text-white hover:bg-primary/80 shadow-lg hover:shadow-primary/50',
-    secondary: 'bg-secondary text-white hover:bg-secondary/80 shadow-lg hover:shadow-secondary/50',
+    primary: 'bg-primary text-white hover:bg-primary/80 shadow-lg shadow-primary/20',
+    secondary: 'bg-secondary text-white hover:bg-secondary/80 shadow-lg shadow-secondary/20',
     outline: 'border-2 border-primary text-primary hover:bg-primary hover:text-white',
   };
 
@@ -32,13 +34,14 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <motion.button
-      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      type={type}
       onClick={onClick}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      whileHover={{ scale: 1.03 }}
+      whileTap={{ scale: 0.96 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.25 }}
     >
       {children}
     </motion.button>

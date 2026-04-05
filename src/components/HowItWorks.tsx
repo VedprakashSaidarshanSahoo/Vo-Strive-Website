@@ -3,43 +3,43 @@ import { motion } from 'framer-motion';
 import Section from './Section';
 
 const steps = [
-  { title: 'Join VoStrive', description: 'Sign up and set your goals' },
-  { title: 'Track Progress', description: 'Monitor your journey with AI insights' },
-  { title: 'Improve Daily', description: 'Follow personalized routines and challenges' },
-  { title: 'Level Up', description: 'Achieve milestones and unlock new features' },
+  { title: 'User joins', description: 'Onboard with a discipline-first profile and goal framework.' },
+  { title: 'Tracks activity', description: 'Log workouts, habits, recovery, and cognitive sessions in one place.' },
+  { title: 'Builds discipline', description: 'Follow streaks, reminders, routines, and behavior feedback.' },
+  { title: 'Gets AI insights', description: 'Receive personalized recommendations and adaptive coaching.' },
+  { title: 'Levels up', description: 'Unlock advanced training, milestones, and measurable transformation.' },
 ];
 
 const HowItWorks: React.FC = () => {
   return (
     <Section id="how-it-works" className="bg-background">
       <motion.div
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
         className="text-center mb-16"
       >
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">How It Works</h2>
-        <p className="text-xl text-gray-300">Your path to transformation</p>
+        <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+          VoStrive makes discipline simple by turning every action into progress. Follow the flow, stay consistent, and keep leveling up.
+        </p>
       </motion.div>
-      <div className="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+      <div className="grid gap-6 md:grid-cols-5">
         {steps.map((step, index) => (
           <motion.div
-            key={index}
-            className="flex flex-col items-center text-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            key={step.title}
+            className="rounded-[2rem] border border-surface bg-surface p-8 text-center shadow-xl shadow-black/20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
           >
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mb-4">
+            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-xl font-bold text-black">
               {index + 1}
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
-            <p className="text-gray-300">{step.description}</p>
-            {index < steps.length - 1 && (
-              <div className="hidden md:block absolute right-0 top-8 w-8 h-0.5 bg-primary transform translate-x-4"></div>
-            )}
+            <h3 className="text-xl font-semibold text-white mb-3">{step.title}</h3>
+            <p className="text-gray-300 leading-7">{step.description}</p>
           </motion.div>
         ))}
       </div>
