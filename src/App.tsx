@@ -13,6 +13,7 @@ import Pricing from './components/Pricing';
 import FutureVision from './components/FutureVision';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import ScrollTop from './components/ScrollTop';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <FutureVision />
       <CTA />
       <Footer />
+      <ScrollTop />
     </div>
   );
 }
