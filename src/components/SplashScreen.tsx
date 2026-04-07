@@ -10,7 +10,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onAnimationComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // GSAP animation for the glowing circle ring light
     const timeline = gsap.timeline();
 
     // Ring light flickering effect (like tubelight)
@@ -36,7 +35,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onAnimationComplete }) => {
     );
 
     // Start exit animation after 4 seconds
-    timer = setTimeout(() => {
+    const timer = window.setTimeout(() => {
       setIsExiting(true);
       onAnimationComplete();
     }, 4000);
@@ -46,8 +45,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onAnimationComplete }) => {
       timeline.kill();
     };
   }, [onAnimationComplete]);
-
-  let timer: ReturnType<typeof setTimeout>;
 
   return (
     <motion.div
