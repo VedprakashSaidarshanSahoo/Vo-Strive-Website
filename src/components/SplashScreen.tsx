@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 
@@ -8,6 +8,22 @@ interface SplashScreenProps {
 
 const SplashScreen: React.FC<SplashScreenProps> = ({ onAnimationComplete }) => {
   const [isExiting, setIsExiting] = useState(false);
+
+  const quotes = useMemo(
+    () => [
+      'Train like a shinobi, conquer every challenge.',
+      'Rise stronger than yesterday — your next level awaits.',
+      'Every session is a step toward your legend.',
+      'Unleash your dormant power and break your limits.',
+      'From zero to awakening: grow beyond your current form.',
+    ],
+    []
+  );
+
+  const selectedQuote = useMemo(
+    () => quotes[Math.floor(Math.random() * quotes.length)],
+    [quotes]
+  );
 
   useEffect(() => {
     const timeline = gsap.timeline();
@@ -119,7 +135,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onAnimationComplete }) => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <h1 className="text-5xl font-bold text-white mb-3">VoStrive</h1>
-          <p className="text-xl text-gray-300">Discipline Engine</p>
+          <p className="text-xl text-gray-300">{selectedQuote}</p>
           <motion.div
             className="mt-6 flex justify-center gap-2"
             animate={{ opacity: [0.5, 1, 0.5] }}
